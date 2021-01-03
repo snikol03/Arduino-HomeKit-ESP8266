@@ -64,12 +64,12 @@ void occupancy_toggle() {
 
 void led_update() {
 	if (led_power) {
-		int pwm = PWMRANGE - (int) (led_bri * 1.0 * PWMRANGE / 100.0 + 0.5f);
+		int pwm = (int) (led_bri * 1.0 * PWMRANGE / 100.0 + 0.5f);
 		analogWrite(PIN_LED, pwm);
 		printf("ON  %3d (pwm: %4d of %d)\n", led_bri, pwm, PWMRANGE);
 	} else {
 		printf("OFF\n");
-		digitalWrite(PIN_LED, HIGH);
+		digitalWrite(PIN_LED, LOW);
 	}
 }
 
